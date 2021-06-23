@@ -13,7 +13,7 @@ function IndivisualMeal(props) {
           <div className={classes.desc}>{props.desc}</div>
           <div className={classes.price}>{price}</div>
         </div>
-      <MealForm/>
+      <MealForm id={props.id}/>
       </Card>
     </li>
   );

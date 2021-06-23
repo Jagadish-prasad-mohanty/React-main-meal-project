@@ -6,16 +6,14 @@ function MealForm(props) {
     return (
         <form className={classes.form}>
             <Input label='Amount'
-                input={
-                    {
-                        id:'_amount'+ props.id,
+                input={{
+                        id:'amount_'+ props.id,
                         min:'1',
                         max:'5',
                         step:'1',
                         type:'number',
                         defaultValue:'1'
-                    }
-                }
+                    }}
             />
 
             <button>
