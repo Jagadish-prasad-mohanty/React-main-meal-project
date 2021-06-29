@@ -2,10 +2,10 @@ import React from 'react';
 import classes from './Cart.module.css'
 import Model from '../UI/Model/Model';
 
-function Cart() {
-    const cartitems=(<ul className={classes["cart-items"]}>{[{name:"Susii"}].map(cart=><li>{cart.name}</li>)}</ul>)
+function Cart(props) {
+    const cartitems=(<ul className={classes["cart-items"]}>{[{name:"Susii"}].map(cart=><li key={cart.name}>{cart.name}</li>)}</ul>)
     return (
-        <Model>
+        <Model onClick={props.onClick}>
             {cartitems}
             <div className={classes.total}>
             <span>Total Amount</span>
@@ -14,7 +14,7 @@ function Cart() {
                 
             
             <div className={classes.actions}>
-                <button className={classes["button--alt"]}>Close</button>
+                <button className={classes["button--alt"]} onClick={props.onClick}>Close</button>
                 <button className={classes.button}>Order</button>
             </div>
         </Model>

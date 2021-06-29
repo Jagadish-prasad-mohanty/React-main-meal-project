@@ -3,7 +3,10 @@ import ReactDOM from 'react-dom'
 import classes from './Model.module.css';
 
 const BackDrop= props=>{
-    return <div className={classes.BackDrop}/>
+    const backdropClickHandler=()=>{
+        props.onClick();
+    }
+    return <div className={classes.BackDrop} onClick={backdropClickHandler}/>
 }
 
 const ModalElem= props=>{
@@ -17,7 +20,7 @@ const renderId=document.getElementById("model-backdrop")
 function Modal(props) {
     return (
         <>
-         {ReactDOM.createPortal(<BackDrop/>,renderId)}
+         {ReactDOM.createPortal(<BackDrop onClick={props.onClick}/>,renderId)}
          {ReactDOM.createPortal(<ModalElem>{props.children}</ModalElem>,renderId)}
         </>
     )

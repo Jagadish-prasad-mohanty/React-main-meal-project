@@ -3,12 +3,12 @@ import BackgroundImage from '../../../assets/meals.jpg';
 import classes from './Header.module.css';
 import HeaderIcon from '../HeaderIcon.js/HeaderIcon';
 
-function Header() {
+function Header(props) {
     return (
         <>
             <header className={classes.Header}>
                 <h2>Redeye's Meals</h2>
-                <HeaderIcon/>
+                <HeaderIcon onClick={props.onClick}/>
             </header>
             <div className={classes["main-image"]}>
                 <img src={BackgroundImage} alt="Background"/>

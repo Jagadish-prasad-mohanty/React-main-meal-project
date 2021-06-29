@@ -20,7 +20,7 @@
     z-index: 99;
     padding: 10px;
     border-radius: 12px;
-    animation: sideForward 1000ms ease-out forwards;
+    animation: sideForward 700ms ease-out forwards;
 
 }
 
@@ -47,7 +47,7 @@
     }
     40%{
         opacity: 0.4;
-        transform: scale(1.2);
+        transform: scale(1.1);
     }
     100%{
         opacity: 1;
