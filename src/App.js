@@ -2,7 +2,7 @@ import './App.css';
 import Header from './Components/Layout/Header/Header';
 import Meals from './Components/Meals/Meals';
 import Cart from './Components/Cart/Cart';
-import Context from './store/Context';
+// import Context from './store/Context';
 import { useState } from 'react';
 import ContextProvider from './store/ContextProvider';
 

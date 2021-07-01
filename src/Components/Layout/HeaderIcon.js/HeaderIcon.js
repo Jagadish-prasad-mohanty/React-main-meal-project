@@ -10,8 +10,8 @@ function HeaderIcon(props) {
     }
 
     const cartCtx=useContext(Context);
-
-    const cartItemCount=cartCtx.items.reduce((num,item)=>{return num+item.amount},0)
+    // console.log(cartCtx.items);
+    const cartItemCount=cartCtx.items.reduce((num,item)=>num+item.amount,0)
 
     return (
         <button className={`${classes.button} ${classes.bump}`} onClick={cartClickHandler}>
