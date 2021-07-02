@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import classes from './Cart.module.css'
 import Model from '../UI/Model/Model';
+import CartItems from './CartItems';
+import Context from '../../store/Context';
 
 function Cart(props) {
-    const cartitems=(<ul className={classes["cart-items"]}>{[{name:"Susii"}].map(cart=><li key={cart.name}>{cart.name}</li>)}</ul>)
+    const cartCtx=useContext(Context);
+    const totalAmount=`$${cartCtx.total.toFixed(2)}`;
     return (
         <Model onClick={props.onClick}>
-            {cartitems}
+            <ul className={classes["cart-items"]}>
+                <CartItems items={cartCtx.items}/>
+                </ul>
             <div className={classes.total}>
             <span>Total Amount</span>
-                <span>32.66</span> 
+                <span>{totalAmount}</span> 
             </div>
-                
             
             <div className={classes.actions}>
                 <button className={classes["button--alt"]} onClick={props.onClick}>Close</button>
