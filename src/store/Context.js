@@ -3,8 +3,9 @@ import React from 'react'
 const Context = React.createContext({
     items:[],
     total:0,
-    addItem:(items)=>{},
-    removeItem:(id)=>{}
+    addItem:(item)=>{},
+    removeItem:(id)=>{},
+    incItem:(item)=>{}
 })
 
 
