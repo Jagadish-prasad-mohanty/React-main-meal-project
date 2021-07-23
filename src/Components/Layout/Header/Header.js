@@ -1,5 +1,5 @@
 import React from 'react';
-import BackgroundImage from '../../../assets/meals.jpg';
+import BackgroundImage from '../../../assets/image/meals.jpg';
 import classes from './Header.module.css';
 import HeaderIcon from '../HeaderIcon.js/HeaderIcon';
 
