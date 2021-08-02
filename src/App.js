@@ -19,7 +19,7 @@ function App() {
   return (
     <ContextProvider>
 
-      {showCart && <Cart onClick={closeCartHandler}/>}
+      {showCart && <Cart onCancle={closeCartHandler}/>}
       <Header onClick={openCartHandler}/>
       <main>
         <Meals/>
