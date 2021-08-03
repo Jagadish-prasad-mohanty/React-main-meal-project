@@ -18,9 +18,8 @@ function Cart(props) {
     <button className={classes["button--alt"]} onClick={props.onCancle}>Close</button>
     <button className={classes.button} onClick={orderButtonHandler}>Order</button>
 </div>
-    return (
-        <Model onClick={props.onClick}>
-            <ul className={classes["cart-items"]}>
+    const orders=<div>
+        <ul className={classes["cart-items"]}>
                 <CartItems items={cartCtx.items}/>
                 </ul>
             <div className={classes.total}>
@@ -31,6 +30,10 @@ function Cart(props) {
             {isOrder && <CheckOut onCancle={props.onCancle} items={cartCtx.items}/>}
             
             {!isOrder && orderActions}
+    </div>
+    return (
+        <Model onClick={props.onCancle}>
+            {cartCtx.items.length===0?<h2 style={{textAlign:'center',marginTop:'3rem'}}>Start adding meals to the cart</h2>:orders}
         </Model>
     )
 }

@@ -8,7 +8,12 @@
 
 .action{
     display: flex;
-    gap: 1rem;
+    flex-flow: column;
+    gap: 0.3rem;
+}
+.action div{
+  display: flex;
+  gap: 1rem;
 }
 .action label{
     width: 8rem;
@@ -21,6 +26,10 @@
     border-radius: .4rem;
     padding:.15rem;
     outline: none;
+}
+
+.invalid{
+  color: rgb(185, 50, 34);
 }
 .controls {
     text-align: right;
