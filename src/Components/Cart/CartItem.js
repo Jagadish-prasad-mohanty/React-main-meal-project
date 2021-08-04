@@ -15,7 +15,7 @@ function CartItem(props) {
             <div className={classes["item-summery"]}>
                 <h2>{props.name}</h2>
                 <div className={classes["item-data"]}>
-                    <span className={classes.price}>{`$${props.price.toFixed(2)}`}</span>
+                    <span className={classes.price}>{`${'\u20A8'} ${props.price.toFixed(2)}`}</span>
                     <span className={classes.amount}>{props.amount}</span>
                 </div>
             </div>
