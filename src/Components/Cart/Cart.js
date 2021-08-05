@@ -45,6 +45,10 @@ function Cart(props) {
         }
         sendOrderedData();
         setPreviewData(true);
+        // setTimeout(() => {
+            
+        //     cartCtx.reset();
+        // }, 5000);
     }
     
    

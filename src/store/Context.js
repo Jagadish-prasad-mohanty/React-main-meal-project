@@ -5,7 +5,8 @@ const Context = React.createContext({
     total:0,
     addItem:(item)=>{},
     removeItem:(id)=>{},
-    incItem:(item)=>{}
+    incItem:(item)=>{},
+    reset:()=>{}
 })
 
 

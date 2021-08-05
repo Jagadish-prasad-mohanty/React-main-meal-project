@@ -7,6 +7,7 @@ const checkPostal = (code) => {
   return code.length >= 5;
 };
 const CheckOut = (props) => {
+
   //creating ref for inputs
   const [enteredName, setName] = useState("");
   const [enteredEmail, setEmail] = useState("");
@@ -30,6 +31,9 @@ const CheckOut = (props) => {
   const [cityIsTouched, setCityIsTouched] = useState(false);
   const [postalIsTouched, setPostalIsTouched] = useState(false);
 
+
+  //disable button
+  // const [disable,setDisable]=useState(true)
   // blur functions
   const nameBlurHandler = (e) => {
     setNameIsTouched(true);
@@ -68,35 +72,36 @@ const CheckOut = (props) => {
   };
 
 //   store validity value in a variable
-  const nameInValidity = nameIsTouched && isEmpty(enteredName);
-  const emailInValidity = emailIsTouched && isEmpty(enteredEmail);
-  const postalInValidity = postalIsTouched && !checkPostal(enteredPostal);
-  const streetInValidity = streetIsTouched && isEmpty(enteredStreet);
-  const cityInValidity = cityIsTouched && isEmpty(enteredCity);
+  const nameInValid = nameIsTouched && isEmpty(enteredName);
+  const emailInValid = emailIsTouched && isEmpty(enteredEmail);
+  const postalInValid = postalIsTouched && !checkPostal(enteredPostal);
+  const streetInValid = streetIsTouched && isEmpty(enteredStreet);
+  const cityInValid = cityIsTouched && isEmpty(enteredCity);
 
 // //   putback the validities to the form valid
     useEffect(()=>{
     setFormIsValid({
-        name: !nameInValidity,
-        email: !emailInValidity,
-        street: !streetInValidity,
-        city: !cityInValidity,
-        postal: !postalInValidity,
+        name: !nameInValid,
+        email: !emailInValid,
+        street: !streetInValid,
+        city: !cityInValid,
+        postal: !postalInValid,
     });
         
-    }, [nameInValidity,emailInValidity,streetInValidity,cityInValidity,postalInValidity,
+    }, [nameInValid,emailInValid,streetInValid,cityInValid,postalInValid
       // nameIsTouched,emailIsTouched,postalIsTouched,cityIsTouched,streetIsTouched
     ] )
 
-    const disable=!nameIsTouched && !emailIsTouched && !postalIsTouched && !streetIsTouched && !cityIsTouched
+    
+    
   //function for submit
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    setCityIsTouched(true)
     setNameIsTouched(true)
-    setPostalIsTouched(true)
     setEmailIsTouched(true)
     setStreetIsTouched(true)
+    setPostalIsTouched(true)
+    setCityIsTouched(true)
     const nameInValidity = isEmpty(enteredName);
     const emailInValidity = isEmpty(enteredEmail);
     const postalInValidity = !checkPostal(enteredPostal);
@@ -104,24 +109,19 @@ const CheckOut = (props) => {
     const cityInValidity = isEmpty(enteredCity);
 
     // putback the validities to the form valid
-    setFormIsValid({
-      name: !nameInValidity,
-      email: !emailInValidity,
-      street: !streetInValidity,
-      city: !cityInValidity,
-      postal: !postalInValidity,
-    });
 
     if (
-      !formIsValid.name ||
-      !formIsValid.email ||
-      !formIsValid.postal ||
-      !formIsValid.city ||
-      !formIsValid.street
+      nameInValidity ||
+      emailInValidity ||
+      postalInValidity ||
+      cityInValidity ||
+      streetInValidity
     ) {
+      alert("please enter all the filled")
       return;
     }
-    console.log(formIsValid);
+    // setDisable(false);
+        console.log(formIsValid);
 
     // seding the buyer data to cart Component
     const personData={
@@ -228,7 +228,9 @@ const CheckOut = (props) => {
         <button className={classes["button-alt"]} onClick={props.onCancle}>
           cancel
         </button>
-        <button type="submit" className={classes.button} disabled={disable}>
+        <button type="submit" className={classes.button}
+        //  disabled={disable}         
+         >
           confirm
         </button>
       </div>

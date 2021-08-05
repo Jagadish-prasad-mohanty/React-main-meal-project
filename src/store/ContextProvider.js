@@ -80,6 +80,9 @@ const cartReducer=(state,action)=>{
             total:updatedTotal
         }
     }
+    else if (action.type==='RESET'){
+        return  defaultState
+    }
     return defaultState
 }
 
@@ -99,11 +102,16 @@ const ContextProvider= (props) =>{
         dispatchCartState({type:'INCR',item:item})
     }
 
+    const reset= ()=>{
+        dispatchCartState({type:'RESET'})
+    }
+
     const contextObject={
         ...cartState,
         addItem:addItemToCart,
         removeItem:removeItemFromCart,
-        incItem:incItemInCart
+        incItem:incItemInCart,
+        reset
     }
 
     return <Context.Provider value={contextObject}>
